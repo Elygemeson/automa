@@ -1,9 +1,17 @@
 import openpyxl
+from const import *
+'''
+Importado o módulo const que para fins de organização e escalabilidade de código agrega constantes.
+'''
+from os import path
+#Importada a classe 'path' da lib 'os' para consumo de seus métodos.
 
-
-workbook_alunos = openpyxl.load_workbook('alunos.xlsx')
-
-
+workbook_alunos = openpyxl.load_workbook(path.join(XLSX_PATH, 'alunos.xlsx')) #Utilizada a XLSX_PATH do módulo const.py, para referenciar o endereço da pasta onde ficam as planilhas.
+'''
+Foi incluso o endereçamento da planilha através da lib 'os' com a classe path utilizando o método
+'.join' que remove a necessidade de escrever os endereços manualmente com '/' ou '\\', também
+garantindo que esta união de endereços ocorra de acordo com o SO operante.
+'''
 
 sheet_alunos = workbook_alunos ['Sheet1']
 
